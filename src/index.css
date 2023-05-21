@@ -31,6 +31,7 @@ body {
   min-height: 100vh;
   justify-content: center;
   flex-direction: column;
+  background-color: #f1f3f4;
 }
 
 h1 {
@@ -81,4 +82,21 @@ button:focus-visible {
 
 #universities-container {
   flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  
+}
+
+.university-card {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  min-height: 3rem;
+  align-items: center;
+  box-shadow: 0 0 10px grey;
+  border-radius: 0.5rem;
+  width:max(35%,250px) ;
+
 }

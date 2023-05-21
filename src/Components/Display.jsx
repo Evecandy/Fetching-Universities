@@ -4,7 +4,7 @@ function DisplayComponent ({universities, country}) {
     console.log(universities);
     const univCards = ()=>{
         return universities.map((university,index) =>(
-            <div>
+            <div key={index} className="university-card">
                 <div>
                     {university.name}
                 </div>
@@ -19,7 +19,7 @@ function DisplayComponent ({universities, country}) {
                     <h1>Universities in {country}</h1>
                     <div id="universities-container">
                         
-                       <div>{univCards()}</div> 
+                       {univCards()} 
             
                     </div>   
                     </> 
