@@ -16,7 +16,7 @@ function DisplayComponent ({universities, country}) {
             {
                 country? 
                     <>
-                    <h1>Universities in {country}</h1>
+                    <h1>Universities in {country} ({universities.length})</h1>
                     <div id="universities-container">
                         
                        {univCards()} 

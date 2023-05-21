@@ -100,3 +100,26 @@ button:focus-visible {
   width:max(35%,250px) ;
 
 }
+
+#search-form {
+  display: flex;
+  height: 2rem;
+  box-shadow: 0 0 5px grey;
+  padding: 0.5rem;
+}
+
+input[type=submit]{
+  border: none;
+  background-color: #0099E5;
+  color: white;
+  cursor: pointer;
+  
+}
+
+input[type=submit]:hover {
+  background-color: #053CAD;
+}
+
+input[name=country] {
+  border: none;
+}
