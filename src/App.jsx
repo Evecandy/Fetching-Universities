@@ -1,50 +1,43 @@
-import React, { useState, useEffect } from "react";
-import SearchPanel from './SearchPanel';
+// import { useState } from 'react'
+// import './App.css'
+import SearchComponent from "./Components/Search"
+import DisplayComponent from "./Components/Display"
+import { useEffect, useState, useCallback } from "react"
 
-const App = () => {
-  const [country, setCountry] = useState("");
-  const [universities, setUniversities] = useState([]);
 
+
+function App() {
+  // const [count, setCount] = useState(0)
+  const [country, setCountry] = useState("")
+  const [universities, setUniversities] = useState([])
+  
+  const setter = useCallback(async () => {
+    if (country) {
+      const response = await fetch(`http://universities.hipolabs.com/search?country=${country}`)
+      const data = await response.json()
+      setUniversities(data)
+      
+    }
+  }, [country])
+  
   useEffect(() => {
-    fetch(`http://universities.hipolabs.com/search?country=${country}`)
-      .then((response) => response.json())
-      .then((data) => setUniversities(data));
-  }, [country]);
+    setter()
+    // console.log(universities[0]);
+  }, [setter])
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Country"
-        value={country}
-        onChange={e => setCountry(e.target.value)}
-      />
-      <UniversitiesList country={country} universities={universities}/>
-    </div>
-  );
-};
+    <>
+      <h1>Universities</h1>
 
-const UniversitiesList = ({country, universities}) => {
-  const renderCards = () => {
-    return universities.map((university, index) => (
-      <li key={index}>
-        <strong>{university.name}</strong>
-        <br />
-        {university.location}
-      </li>
-    ));
-  };
+      <SearchComponent 
+        onSubmit={event=>{
+          event.preventDefault()
+          setCountry(event.target.country.value)
+        }}/>
+      <DisplayComponent universities={universities} country={country}/>
+      
+    </>
+  )
+}
 
-  return (
-    <div>
-      <ul>
-        {renderCards()}
-      </ul>
-    </div>
-  );
-};
-export default App;
-
-
-
-
+export default App
