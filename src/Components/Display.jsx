@@ -6,8 +6,13 @@ function DisplayComponent ({universities, country}) {
         return universities.map((university,index) =>(
             <div key={index} className="university-card">
                 <div>
-                    {university.name}
+                   <p> {university.name}</p>
+                    <p>{university.domains}</p>
+                    <p>{university.web_pages}</p>
                 </div>
+{/* name:<span>universities name:</span>
+alpha_two_code:<span>alpha_two_code:[0]</span>
+country:<span>country:[0]</span> */}
             </div>
         ))
     }

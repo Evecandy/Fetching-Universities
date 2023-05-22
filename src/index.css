@@ -97,7 +97,8 @@ button:focus-visible {
   align-items: center;
   box-shadow: 0 0 10px grey;
   border-radius: 0.5rem;
-  width:max(35%,250px) ;
+  width:max(40%,300px) ;
+  padding: 1rem;
 
 }
 
