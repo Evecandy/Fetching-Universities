@@ -13,7 +13,7 @@ function App() {
   
   const setter = useCallback(async () => {
     if (country) {
-      const response = await fetch(`http://universities.hipolabs.com/search?country=${country}`)
+      const response = await fetch(`https://universitiesapi.onrender.com/v1/api/universitiessearch?country=${country}`)
       const data = await response.json()
       setUniversities(data)
       
